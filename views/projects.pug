@@ -1,0 +1,128 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    title Projects
+    // Bootstrap
+    link(rel='stylesheet', href='/stylesheets/bootstrap.css')
+    link(rel='stylesheet', href='/stylesheets/navBar.css')
+    link(rel='stylesheet', href='/stylesheets/peacockweb.css')
+  body
+    header
+      .peacockLogo
+        // Profile logo. Add a img tag in place of <span>.
+        a(href='../index.html')
+          img.profileLogo(src='/images/peacock.svg', alt='', height='40px')
+        nav
+          ol.navBar
+            li
+              a(href='/kyle') Home
+            li.active Projects
+            li
+              a(href='/kyle/resume') Resume
+    section
+      .jumbotron.text-center
+        .container
+          .row
+            .col-xs12
+              h1 Project Page
+              hr
+              h4 Coursework from Galvanize and my personal projects
+    section
+      .container
+        .row
+          .col-xs-12.text-center
+            h1 Working on the Fundamentals
+            p
+              | While this page may be sparse now, as I take on new challenges, I'll share some of my more interesting experiments here. Whether these challenges are assigned by Galvanize or my own curiosity, there is always some new technology to experiment with.
+    section
+      .container.well
+        .row
+          .col-lg-6.col-md-6.col-sm-6
+            .media
+              .media-body
+                h2.media-heading Galvanize
+                li
+                  h4
+                    a(href='#legible') Personal Project
+                li
+                  h4
+                    a(href='#bughub') Bug Hub
+                li
+                  h4
+                    a(href='/kyle/projects/tic-tac-toe/index.html') Tic-Tac-Toe
+          br
+          .col-lg-6.col-md-6.col-sm-6(style='float:right')
+            .media
+              .media-body
+                h2.media-heading Personal Projects
+                li
+                  h4
+                    a(href='angelhack')  AngelHack Grocery Manager
+    section
+      .container
+        .row
+          .col-lg-12.text-center
+            a(name='bughub')
+            h2 Latest Project
+            h5
+              | With a team of four, we spent a week developing a Stack Overflow-like error journal application for our team using Express and React.
+            a(href='https://bug-hub.herokuapp.com/')
+              img.img-link(src='/images/bug_hub.png')
+        .row
+          .col-lg-12.col-md-6.text-center
+            a(name='legible')
+            h3 First Month Personal Project
+            h5
+              | After one month at Galvanize, I decided to write a chrome extension to grab text from a page that is formatted with an 
+              code Article
+              |  tag. Click the logo to get view a demo of the how grabbed content is formatted.
+            a(href='/kyle/projects/project1/demo.html')
+              img.img-link(src='/images/Legible.png')
+        .row
+          .col-lg-12.col-md-6.text-center
+            h3 AngelHack SF - Grocery Manager
+            h5
+              | Just about three months into my programming education, I attended a hackathon, which I expected would be an informative process. To my surprise, I found four other solo participants, and worked with them to build a demo that took second place overall out of the 30+ competing teams.
+            h5
+              | The application had two parts, and while we don't have the back-end hosted anywhere currently, you can check out the view with some spoofed information here:
+            a(href='https://powerful-shelf-92831.herokuapp.com/')
+              img.img-link(src='http://greggopman.com/wp-content/uploads/2015/01/angelhack-4-logo2.jpg')
+            p Disclaimer: best viewed on mobile or a simulated mobile view
+    hr
+    section
+      .container
+        .row
+          .col-lg-12.text-center
+            h1 More information coming soon!
+    hr
+    .section.well
+      .container
+        .row
+          .text-center
+            h3.text-center GET IN TOUCH
+            address.text-center
+              strong Peacockweb.net
+              br
+              |   kyle@peacockweb.net
+              br
+      footer.text-center
+        .container
+          .row
+            .col-xs-12
+              p Copyright © MyCompany. All rights reserved.
+      // jQuery (necessary for Bootstrap's JavaScript plugins)
+      script(src='/javascripts/jquery-1.11.3.min.js')
+      // Include all compiled plugins (below), or include individual files as needed
+      script(src='/javascripts/bootstrap.js')
+      script(type='text/javascript').
+        var _mfq = _mfq || [];
+        (function () {
+        var mf = document.createElement("script");
+        mf.type = "text/javascript";
+        mf.async = true;
+        mf.src = "//cdn.mouseflow.com/projects/bc7a0633-e5c9-4da5-ba04-3caa994b6e15.js";
+        document.getElementsByTagName("head")[0].appendChild(mf);
+        })();
