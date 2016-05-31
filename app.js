@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const app = express();
 const methodOverride = require("method-override");
@@ -16,7 +17,7 @@ app.use(methodOverride("_method"));
 app.use('/kyle', routes.kyle);
 app.use('/', express.static(__dirname + '/public/static'));
 
-var port = process.env.PORT || 3000;
+var port = process.env.PORT;
 
 app.listen(port, function(){
   console.log(`Server is listening on port ${port}`)
