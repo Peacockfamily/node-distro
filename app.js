@@ -8,7 +8,8 @@ const routes = require("./routes/index.js")
 const morgan = require("morgan")
 var favicon = require('serve-favicon');
 var jade = require('jade');
-
+https = require('https');
+const fs = require('fs');
 
 app.set("view engine", "jade");
 app.use(express.static(__dirname + "/public"));
@@ -28,6 +29,7 @@ app.get('/', function(req,res){
 
 var port = process.env.PORT;
 
-app.listen(port, function(){
-  console.log(`Server is listening on port ${port}`)
-})
+https.createServer({
+      key: fs.readFileSync('./key.pem'),
+      cert: fs.readFileSync('./server.crt')
+}, app).listen(port);
