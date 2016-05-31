@@ -1,4 +1,4 @@
-var port = process.env.PORT || 3000,
+var port = 80,
     express = require('express'),
     app = express(),
     fs = require('fs')
