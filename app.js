@@ -7,10 +7,10 @@ const bodyParser = require("body-parser")
 const routes = require("./routes/index.js")
 const morgan = require("morgan")
 var favicon = require('serve-favicon');
-var pug = require('pug');
+var jade = require('jade');
 
 
-app.set("view engine", "pug");
+app.set("view engine", "jade");
 app.use(express.static(__dirname + "/public"));
 app.use(morgan("tiny"))
 app.use(bodyParser.urlencoded({extended:true}));
