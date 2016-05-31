@@ -1,36 +1,37 @@
-require('dotenv').config();
-const express = require('express');
-const app = express();
-const methodOverride = require("method-override");
+var port = process.env.PORT || 3000,
+    express = require('express'),
+    app = express(),
+    fs = require('fs')
 const path = require("path");
-const bodyParser = require("body-parser")
-const routes = require("./routes/index.js")
-const morgan = require("morgan")
-var favicon = require('serve-favicon');
-var jade = require('jade');
-https = require('https');
-const fs = require('fs');
+const favicon = require('serve-favicon');
 
-app.set("view engine", "jade");
+
+app.set('view engine','pug');
 app.use(express.static(__dirname + "/public"));
-app.use(morgan("tiny"))
-app.use(bodyParser.urlencoded({extended:true}));
 app.use(favicon(path.join(__dirname,'public','images','favicon.ico')));
 
-app.use(methodOverride("_method"));
-
-
-app.use('/kyle', routes.kyle);
-
-
 app.get('/', function(req,res){
-  res.redirect('/kyle');
+  res.render('index');
+})
+app.get('/projects', function(req,res){
+  res.render('projects');
+})
+app.get('/resume', function(req,res){
+  res.render('resume');
+})
+app.get('/download', function(req,res){
+  var file = 'public/upload/Kyle Peacock.pdf';
+  res.download(file);
 })
 
-var port = process.env.PORT;
 
-https.createServer({
-      key: fs.readFileSync('./key.pem'),
-      cert: fs.readFileSync('./server.crt')
-}, app).listen(port);
-console.log(`listening on port ${port}`)
+var log = function(entry) {
+    fs.appendFileSync('/tmp/sample-app.log', new Date().toISOString() + ' - ' + entry + '\n');
+};
+
+
+// Listen on port 3000, IP defaults to 127.0.0.1
+app.listen(port);
+
+// Put a friendly message on the terminal
+console.log('Server running at http://127.0.0.1:' + port + '/');
