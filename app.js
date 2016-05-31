@@ -29,7 +29,8 @@ app.get('/', function(req,res){
 
 var port = process.env.PORT;
 
-app.listen(port);
-
+https.createServer({
+      key: fs.readFileSync('./key.pem'),
+      cert: fs.readFileSync('./server.crt')
+}, app).listen(port);
 console.log(`listening on port ${port}`)
-
