@@ -6,13 +6,17 @@ const path = require("path");
 const bodyParser = require("body-parser")
 const routes = require("./routes/index.js")
 const morgan = require("morgan")
+var favicon = require('serve-favicon');
+
 
 app.set("view engine", "jade");
 app.use(express.static(__dirname + "/public"));
 app.use(morgan("tiny"))
 app.use(bodyParser.urlencoded({extended:true}));
+app.use(favicon(path.join(__dirname,'public','images','favicon.ico')));
 
 app.use(methodOverride("_method"));
+
 
 app.use('/kyle', routes.kyle);
 app.use('/', express.static(__dirname + '/public/static'));
