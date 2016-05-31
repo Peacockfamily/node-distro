@@ -20,7 +20,11 @@ app.use(methodOverride("_method"));
 
 
 app.use('/kyle', routes.kyle);
-app.use('/', express.static(__dirname + '/public/static'));
+
+
+app.get('/', function(req,res){
+  res.redirect('/kyle');
+})
 
 var port = process.env.PORT;
 
