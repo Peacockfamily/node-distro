@@ -13,6 +13,9 @@ app.use(favicon(path.join(__dirname,'public','images','favicon.ico')));
 app.get('/', function(req,res){
   res.render('index');
 })
+app.get('/kyle', function(req,res){
+  res.redirect('/');
+})
 app.get('/projects', function(req,res){
   res.render('projects');
 })
